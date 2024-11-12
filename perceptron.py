@@ -13,7 +13,7 @@ X_train1 = np.array([
     [0.82, 0.93],
     [0.75, 0.25]
 ])
-y_train1 = np.array([0, 1, 0, 1, 0, 1, 0, 0, 1, 0])
+y_train1 = np.array([-1, 1, -1, 1, -1, 1, -1, -1, 1, -1])
 
 X_train2 = np.array([
     [0.3, 0.2],
@@ -27,7 +27,7 @@ X_train2 = np.array([
     [0.82, 0.93],
     [0.75, 0.25]
 ])
-y_train2 = np.array([0, 0, 1, 0, 1, 0, 0, 1, 0, 1])
+y_train2 = np.array([-1, -1, 1, -1, 1, -1, -1, 1, -1, 1])
 
 # Initialize weights and bias
 weights_perceptron_train1 = np.random.rand(2)
@@ -44,7 +44,7 @@ learning_rate = 0.1
 epochs = 100
 
 def perceptron_rule_with_bias(weights, bias, x, target, learning_rate):
-    prediction = 1 if (np.dot(x, weights) + bias) >= 0 else 0
+    prediction = 1 if (np.dot(x, weights) + bias) >= 0 else -1
     error = target - prediction
     weights += learning_rate * error * x
     bias += learning_rate * error
@@ -60,8 +60,8 @@ def delta_rule_with_bias(weights, bias, x, target, learning_rate):
 def plot_separator(X, y, weights, bias, title, subplot_position):
     plt.subplot(subplot_position)
     for i in range(len(y)):
-        if y[i] == 0:
-            plt.scatter(X[i, 0], X[i, 1], color='blue', marker='o', label='Class 0' if i == 0 else "")
+        if y[i] == -1:
+            plt.scatter(X[i, 0], X[i, 1], color='blue', marker='o', label='Class -1' if i == 0 else "")
         else:
             plt.scatter(X[i, 0], X[i, 1], color='red', marker='x', label='Class 1' if i == 0 else "")
 
