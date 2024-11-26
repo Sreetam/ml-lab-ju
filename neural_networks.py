@@ -101,7 +101,8 @@ class NeuralNetwork:
             loss = self.compute_loss(y, y_pred)
             losses.append(loss)
             if epoch % 10 == 0:
-                print(f'Epoch {epoch}, Loss: {loss}')
+                pass
+                # print(f'Epoch {epoch}, Loss: {loss}')
         return losses
 
 # Training and evaluation
@@ -110,13 +111,13 @@ output_size = 1
 
 # Case 1: All sigmoid
 print("Training model with all sigmoid activations...")
-nn_sigmoid = NeuralNetwork(input_size, hidden_layers=2, nodes_per_layer=16, output_size=output_size, activation='sigmoid')
-losses_sigmoid = nn_sigmoid.train(X_train, y_train, epochs=50)
+nn_sigmoid = NeuralNetwork(input_size, hidden_layers=2, nodes_per_layer=16, output_size=output_size, activation='sigmoid', learning_rate=0.001)
+losses_sigmoid = nn_sigmoid.train(X_train, y_train, epochs=1000)
 
 # Case 2: ReLU hidden layers, sigmoid output
 print("Training model with ReLU hidden layers and sigmoid output...")
-nn_relu = NeuralNetwork(input_size, hidden_layers=2, nodes_per_layer=16, output_size=output_size, activation='relu')
-losses_relu = nn_relu.train(X_train, y_train, epochs=50)
+nn_relu = NeuralNetwork(input_size, hidden_layers=2, nodes_per_layer=16, output_size=output_size, activation='relu', learning_rate=0.001)
+losses_relu = nn_relu.train(X_train, y_train, epochs=1000)
 
 # Plotting epoch vs loss
 plt.figure(figsize=(12, 6))
