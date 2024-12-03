@@ -1,5 +1,6 @@
 import numpy as np  
 import matplotlib.pyplot as plt
+from datetime import datetime
 np.random.seed(30)
 X_train1 = np.array([
     [0.3, 0.2],
@@ -140,6 +141,7 @@ plt.legend()
 plt.grid(True)
 
 plt.tight_layout()
+plt.savefig(f"outputs/{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
 plt.show()
 
 plt.figure(figsize=(18, 12))
@@ -151,6 +153,7 @@ plot_separator(X_train1, y_train1, weights_delta_train1, bias_delta_train1, "Tra
 plot_separator(X_train2, y_train2, weights_delta_train2, bias_delta_train2, "Training Set 2 with Separator (Delta)", 224)
 
 plt.tight_layout()
+plt.savefig(f"outputs/{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
 plt.show()
 
 print("Final weights and bias for Training Set 1 (Perceptron):", weights_perceptron_train1, bias_perceptron_train1)

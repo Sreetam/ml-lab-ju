@@ -2,6 +2,7 @@ import os
 import numpy as np
 import pandas as pd
 import matplotlib.pyplot as plt
+from datetime import datetime
 
 file_path = os.path.join(os.path.dirname(__file__), 'datasets', 'diabetes_dataset.csv')
 
@@ -93,6 +94,7 @@ plt.xlabel('Epoch')
 plt.ylabel('Cross Entropy Loss')
 plt.title('Epoch vs Training and Validation Error')
 plt.legend()
+plt.savefig(f"outputs/{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
 plt.show()
 
 plt.scatter(range(model.epochs), model.train_errors, label='Training Error', s=10)
@@ -101,6 +103,7 @@ plt.xlabel('Epoch')
 plt.ylabel('Cross Entropy Loss')
 plt.title('Epoch vs Training and Validation Error (Scatter Plot)')
 plt.legend()
+plt.savefig(f"outputs/{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
 plt.show()
 
 # Predict on the test data and calculate accuracy manually

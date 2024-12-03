@@ -5,6 +5,7 @@ import pandas as pd
 import numpy as np
 import time
 import os
+from datetime import datetime
 
 # Load dataset and preprocess
 file_path = os.path.join(os.path.dirname(__file__), 'datasets', 'Housing.csv')
@@ -135,6 +136,7 @@ axs[2].set_ylabel('MSE')
 axs[2].legend()
 
 plt.tight_layout()
+plt.savefig(f"outputs/{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
 plt.show()
 
 # PCA on test data and 3D Plot of Actual vs. Predicted for each method
@@ -154,4 +156,5 @@ ax.set_xlabel('PCA Component 1')
 ax.set_ylabel('PCA Component 2')
 ax.set_zlabel('Target Variable')
 ax.legend()
+plt.savefig(f"outputs/{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
 plt.show()

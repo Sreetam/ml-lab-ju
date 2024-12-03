@@ -3,6 +3,7 @@ import matplotlib.pyplot as plt
 from sklearn.model_selection import train_test_split
 from sklearn.preprocessing import StandardScaler
 import os
+from datetime import datetime
 
 # Load dataset
 file_path = os.path.join(os.path.dirname(__file__), 'datasets', 'diabetes_dataset.csv')
@@ -128,4 +129,5 @@ plt.xlabel('Epoch')
 plt.ylabel('Loss')
 plt.legend()
 plt.grid()
+plt.savefig(f"outputs/{datetime.now().strftime('%Y%m%d_%H%M%S')}.png")
 plt.show()
